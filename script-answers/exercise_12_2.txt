@@ -1,0 +1,18 @@
+# ls
+bin  boot  dev	etc  home  lib	media  mnt  opt  proc  root  run  sbin	srv  sys  tmp  typescript  usr	var
+# cd /usr
+# ls
+bin  games  include  lib  libexec  local  sbin	share  src
+# cd src
+# ls
+# mkdir app
+# ls
+app
+# cd app
+# al
+sh: 9: al: not found
+# ls
+# echo> index.js
+# ls
+index.js
+# exit

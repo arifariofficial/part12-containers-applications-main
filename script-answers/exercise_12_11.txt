@@ -1,0 +1,75 @@
+Script started, output file is typescript
+➜  todo-backend docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED       STATUS       PORTS                     NAMES
+939d0a0f8424   redis     "docker-entrypoint.s…"   2 hours ago   Up 2 hours   0.0.0.0:6379->6379/tcp    todo-backend-redis-1
+d9a7b38f44c3   mongo     "docker-entrypoint.s…"   2 hours ago   Up 2 hours   0.0.0.0:3456->27017/tcp   todo-backend-mongo-1
+➜  todo-backend docker exec -it 93 bash
+root@939d0a0f8424:/data# KEYS *
+bash: KEYS: command not found
+root@939d0a0f8424:/data# KEYS  
+bash: KEYS: command not found
+root@939d0a0f8424:/data# redis-cli
+127.0.0.1:6379> KEYS *
+(empty array)
+127.0.0.1:6379> GET
+(error) ERR wrong number of arguments for 'get' command
+127.0.0.1:6379> GET key
+(nil)
+127.0.0.1:6379> KEYS *
+1) "counter"
+127.0.0.1:6379> GET counter
+"6"
+127.0.0.1:6379> SET counter 9001
+OK
+127.0.0.1:6379> GET counter
+"9002"
+127.0.0.1:6379> DEL counter
+(integer) 1
+127.0.0.1:6379> GET counter
+(nil)
+127.0.0.1:6379> GET counter
+"8"
+127.0.0.1:6379> exit
+root@939d0a0f8424:/data# exit
+exit
+➜  todo-backend exit
+
+Script done, output file is typescript
+➜  todo-backend cat typescript
+Script started on Fri Dec 29 23:13:05 2023
+➜  todo-backend docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED       STATUS       PORTS                     NAMES
+939d0a0f8424   redis     "docker-entrypoint.s…"   2 hours ago   Up 2 hours   0.0.0.0:6379->6379/tcp    todo-backend-redis-1
+d9a7b38f44c3   mongo     "docker-entrypoint.s…"   2 hours ago   Up 2 hours   0.0.0.0:3456->27017/tcp   todo-backend-mongo-1
+➜  todo-backend docker exec -it 93 bash
+root@939d0a0f8424:/data# KEYS *
+bash: KEYS: command not found
+root@939d0a0f8424:/data# KEYS  
+bash: KEYS: command not found
+root@939d0a0f8424:/data# redis-cli
+127.0.0.1:6379> KEYS *
+(empty array)
+127.0.0.1:6379> GET
+(error) ERR wrong number of arguments for 'get' command
+127.0.0.1:6379> GET key
+(nil)
+127.0.0.1:6379> KEYS *
+1) "counter"
+127.0.0.1:6379> GET counter
+"6"
+127.0.0.1:6379> SET counter 9001
+OK
+127.0.0.1:6379> GET counter
+"9002"
+127.0.0.1:6379> DEL counter
+(integer) 1
+127.0.0.1:6379> GET counter
+(nil)
+127.0.0.1:6379> GET counter
+"8"
+127.0.0.1:6379> exit
+root@939d0a0f8424:/data# exit
+exit
+➜  todo-backend exit
+
+Script done on Fri Dec 29 23:34:26 2023

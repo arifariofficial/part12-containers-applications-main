@@ -1,0 +1,153 @@
+Script started, output file is typescript
+➜  todo-backend docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                     NAMES
+1d9a4ef3bc61   mongo     "docker-entrypoint.s…"   54 seconds ago   Up 53 seconds   0.0.0.0:3456->27017/tcp   todo-backend-mongo-1
+➜  todo-backend docker exec -it 1d bash
+root@1d9a4ef3bc61:/# mongosh -u root -p example 
+Current Mongosh Log ID: 658ef546220d54f38480357d
+Connecting to:          mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.1
+Using MongoDB:          7.0.4
+Using Mongosh:          2.1.1
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2023-12-29T16:33:23.609+00:00: /sys/kernel/mm/transparent_hugepage/enabled is 'always'. We suggest setting it to 'never'
+   2023-12-29T16:33:23.609+00:00: vm.max_map_count is too low
+------
+
+test> show dbs
+admin         100.00 KiB
+config         12.00 KiB
+local          72.00 KiB
+the_database   40.00 KiB
+test> use the_database
+switched to db the_database
+the_database> show collections
+todos
+the_database> db.todos.find({})
+[
+  {
+    _id: ObjectId('658ef4d1352145f0b1586bd0'),
+    text: 'Write code',
+    done: true
+  },
+  {
+    _id: ObjectId('658ef4d1352145f0b1586bd1'),
+    text: 'Learn about containers',
+    done: false
+  }
+]
+the_database> db.todos.create({text:"Increate the number of tools in my toolbelt", done: false})
+TypeError: db.todos.create is not a function
+the_database> db.todos.insertOne({text:"Increase the number of toools in my toolbelt", done: false})
+{
+  acknowledged: true,
+  insertedId: ObjectId('658ef74c220d54f38480357e')
+}
+the_database> db.todos.find({})
+[
+  {
+    _id: ObjectId('658ef4d1352145f0b1586bd0'),
+    text: 'Write code',
+    done: true
+  },
+  {
+    _id: ObjectId('658ef4d1352145f0b1586bd1'),
+    text: 'Learn about containers',
+    done: false
+  },
+  {
+    _id: ObjectId('658ef74c220d54f38480357e'),
+    text: 'Increase the number of toools in my toolbelt',
+    done: false
+  }
+]
+the_database> exit
+root@1d9a4ef3bc61:/# exit
+exit
+➜  todo-backend exit
+
+Script done, output file is typescript
+➜  todo-backend cat typescript
+Script started on Fri Dec 29 18:33:57 2023
+➜  todo-backend docker container ls
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                     NAMES
+1d9a4ef3bc61   mongo     "docker-entrypoint.s…"   54 seconds ago   Up 53 seconds   0.0.0.0:3456->27017/tcp   todo-backend-mongo-1
+➜  todo-backend docker exec -it 1d bash
+root@1d9a4ef3bc61:/# mongosh -u root -p example 
+Current Mongosh Log ID: 658ef546220d54f38480357d
+Connecting to:          mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.1.1
+Using MongoDB:          7.0.4
+Using Mongosh:          2.1.1
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+------
+   The server generated these startup warnings when booting
+   2023-12-29T16:33:23.609+00:00: /sys/kernel/mm/transparent_hugepage/enabled is 'always'. We suggest setting it to 'never'
+   2023-12-29T16:33:23.609+00:00: vm.max_map_count is too low
+------
+
+test> show dbs
+admin         100.00 KiB
+config         12.00 KiB
+local          72.00 KiB
+the_database   40.00 KiB
+test> use the_database
+switched to db the_database
+the_database> show collections
+todos
+the_database> db.todos.find({})
+[
+  {
+    _id: ObjectId('658ef4d1352145f0b1586bd0'),
+    text: 'Write code',
+    done: true
+  },
+  {
+    _id: ObjectId('658ef4d1352145f0b1586bd1'),
+    text: 'Learn about containers',
+    done: false
+  }
+]
+the_database> db.todos.create({text:"Increate the number of tools in my toolbelt", done: false})
+TypeError: db.todos.create is not a function
+the_database> db.todos.insertOne({text:"Increase the number of toools in my toolbelt", done: false})
+{
+  acknowledged: true,
+  insertedId: ObjectId('658ef74c220d54f38480357e')
+}
+the_database> db.todos.find({})
+[
+  {
+    _id: ObjectId('658ef4d1352145f0b1586bd0'),
+    text: 'Write code',
+    done: true
+  },
+  {
+    _id: ObjectId('658ef4d1352145f0b1586bd1'),
+    text: 'Learn about containers',
+    done: false
+  },
+  {
+    _id: ObjectId('658ef74c220d54f38480357e'),
+    text: 'Increase the number of toools in my toolbelt',
+    done: false
+  }
+]
+the_database> exit
+root@1d9a4ef3bc61:/# exit
+exit
+➜  todo-backend exit
+
+Script done on Fri Dec 29 18:44:47 2023
